@@ -1,5 +1,7 @@
 class OrdersController < ApplicationController
 
+  layout 'landing'
+
   # GET /orders/new
   def new
     @order = Order.new
