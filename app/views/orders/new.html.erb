@@ -1,37 +1,4 @@
-<form class="contact-form">
-  <div class="row">
-    <div class="col-md-6">
-        <div class="form-group bmd-form-group">
-            <label class="bmd-label-floating">Your Name</label>
-            <input type="email" class="form-control">
-        </div>
-    </div>
-    <div class="col-md-6">
-        <div class="form-group bmd-form-group">
-            <label class="bmd-label-floating">Your Email</label>
-            <input type="email" class="form-control">
-        </div>
-    </div>
-  </div>
-  <div class="form-group bmd-form-group">
-      <label for="exampleMessage" class="bmd-label-floating">Your Message</label>
-      <textarea type="email" class="form-control" rows="4" id="exampleMessage"></textarea>
-  </div>
-  <div class="row">
-    <div class="col-md-4 ml-auto mr-auto text-center">
-        <button class="btn btn-primary btn-raised">
-            Send Message
-        </button>
-    </div>
-  </div>
-</form>
-
-
-
-
-
-
-<%= form_with(model: @order, local: true) do |form| %>
+<%= form_with(model: @order, local: true, class: 'contact-form') do |form| %>
   <% if @order.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h2>
@@ -44,22 +11,34 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name, id: :order_name %>
+  <div class="row">
+    <div class="col-md-6 ml-auto mr-auto text-center">
+      <div class="form-group bmd-form-group">
+        <label class="bmd-label-floating">Ваше имя</label>
+        <%= form.text_field :name, id: :order_name, class: 'form-control' %>
+      </div>
+    </div>
   </div>
-
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email, id: :order_email %>
+  <div class="row">
+    <div class="col-md-6 ml-auto mr-auto text-center">
+      <div class="form-group bmd-form-group">
+        <label class="bmd-label-floating">Адрес электронной почты</label>
+        <%= form.text_field :email, id: :order_email, class: 'form-control' %>
+      </div>
+    </div>
   </div>
-
-  <div class="field">
-    <%= form.label :phone %>
-    <%= form.text_field :phone, id: :order_phone %>
+  <div class="row">
+    <div class="col-md-6 ml-auto mr-auto text-center">
+      <div class="form-group bmd-form-group">
+        <label class="bmd-label-floating">Телефон</label>
+        <%= form.text_field :phone, id: :order_phone, class: 'form-control' %>
+      </div>
+    </div>
   </div>
-
-  <div class="actions">
-    <%= form.submit %>
+  
+  <div class="row">
+    <div class="col-md-4 ml-auto mr-auto text-center">
+      <%= form.submit class: 'btn btn-primary btn-raised'%>
+    </div>
   </div>
 <% end %>
