@@ -7,7 +7,7 @@ default: &default
 
 development:
   <<: *default
-  database: testapp_development
+  database: appname_development
   username: postgres
   password: postgres
   host: 127.0.0.1
@@ -15,7 +15,7 @@ development:
 
 test:
   <<: *default
-  database: testapp_test
+  database: appname_test
   username: postgres
   password: postgres
   host: 127.0.0.1
